@@ -7,7 +7,7 @@ import MobileHeader from "./mobile-header";
 import DesktopHeader from "./desktop-header";
 import Sidebar from "./sidebar";
 import Link from "next/link";
-import { Bell, Menu, Search } from "lucide-react";
+import { Bell, Menu, MenuIcon, Search } from "lucide-react";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -43,10 +43,10 @@ export default function AppShell({
 
         <div className="flex-1">
           {/* Top Navigation Header */}
-          <header className="bg-white border-b border-[#DCE0E5] px-4 sm:px-6 py-2">
+          <header className="bg-white lg:border-b border-[#DCE0E5] px-4 sm:px-6 py-2">
             <div className="flex items-center justify-between">
               {/* Center - Search bar */}
-              <div className="flex-1 max-w-md">
+              <div className="hidden lg:block flex-1 max-w-md">
                 <div className="flex items-center justify-between bg-[#F5F6F7] border border-[#DCE0E5] rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-transparent transition-all">
                   <input
                     type="text"
@@ -57,8 +57,17 @@ export default function AppShell({
                 </div>
               </div>
 
+              <div>
+                <MenuIcon className="w-6 h-6 lg:hidden cursor-pointer" onClick={() => setMobileOpen(true)} />
+              </div>
+
               {/* Right side - User profile */}
               <div className="flex items-center gap-4 ml-4">
+                {/* Search icon for mobile view */}
+                <div className="lg:hidden hover:bg-gray-100 bg-white border border-[#DCE0E5] rounded-full p-2.5">
+                  <Search className="w-5 h-5" />
+                </div>
+
                 <button className="relative p-2 hover:bg-gray-100 bg-white border border-[#DCE0E5] rounded-full transition-colors">
                   <Bell className="w-6 h-6 text-gray-600" />
                   <span className="absolute top-1 right-3 w-2 h-2 bg-[#5E2A8C] rounded-full"></span>
