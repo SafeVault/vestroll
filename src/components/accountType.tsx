@@ -2,13 +2,12 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Globe from "./ui/globe";
 import BusinessIllustration from "./ui/business_illustration";
 import FreelancerIllustration from "./ui/freelancer_illustration";
 import ContractorIllustration from "./ui/contractor_illustration";
-import vesrrolllogo from "../app/vestroll_Logo.png";
-import profile from "../app/profile.png";
 import Image from "next/image";
+import mobileLogo from "../../public/logo/mologo.png";
+import leftImage from "../../public/images/Left.png";
 const accountTypes = [
   {
     id: "business",
@@ -35,91 +34,19 @@ export default function VestRollAccountSelection() {
 
   return (
     <div className="min-h-screen bg-gray-50 lg:bg-white">
+      {/* Mobile Logo */}
+      <div className="m-7 lg:hidden">
+        <Image src={mobileLogo} alt="Globe icon" width={40} height={40} />
+      </div>
+
       <div className="p-4 lg:flex lg:min-h-screen">
         {/* Left Panel - Desktop Only */}
-        <div className="hidden rounded-lg  lg:flex lg:w-1/2 bg-[#5E2A8C] relative overflow-hidden">
-          {/* VestRoll Logo */}
-          <div className="absolute bg-white top-8 rounded-lg left-8 z-10">
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2">
-              <Image
-                src={vesrrolllogo}
-                alt="VestRoll Logo"
-                width={32}
-                height={32}
-              />
-              <span className="text-black font-semibold text-lg">VestRoll</span>
-            </div>
-          </div>
-
-          {/* Currency Indicators */}
-          <div className="absolute top-[15rem] left-[25%] flex items-center justify-center">
-            <div className="relative w-80 h-80">
-              <Globe />
-
-              {/* Currency Badges */}
-              <div className="absolute top-12 left-6 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                <Image src={profile} alt="Profile" width={24} height={24} />
-
-                <span className="text-sm font-medium">CAD</span>
-                <span className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-white text-xs">
-                  🍁
-                </span>
-              </div>
-
-              <div className="absolute top-12 left-50 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                <Image src={profile} alt="Profile" width={24} height={24} />
-
-                <span className="text-sm font-medium">EUR</span>
-                <span className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-                  🇪🇺
-                </span>
-              </div>
-
-              <div className="absolute bottom-25 left-70 bg-white/90 w-[6.5rem] backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                <Image src={profile} alt="Profile" width={24} height={24} />
-
-                <span className="text-sm font-medium">GBP</span>
-                <span className="w-4 h-4 bg-red-600 rounded-full flex items-center justify-center text-white text-xs">
-                  🇬🇧
-                </span>
-              </div>
-
-              <div className="absolute bottom-32 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                <Image src={profile} alt="Profile" width={24} height={24} />
-
-                <span className="text-sm font-medium">USD</span>
-                <span className="w-4 h-4 bg-green-600 rounded-full flex items-center justify-center text-white text-xs">
-                  💵
-                </span>
-              </div>
-
-              <div className="absolute bottom-4 right-0 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                <Image src={profile} alt="Profile" width={24} height={24} />
-
-                <span className="text-sm font-medium">NGN</span>
-                <span className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">
-                  🇳🇬
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Content */}
-          <div className="absolute bottom-16 left-8 right-8">
-            <h1 className="text-6xl font-bold text-white mb-4 leading-tight">
-              Seamless Payments,
-              <br />
-              Anywhere.
-            </h1>
-            <p className="text-purple-100 text-lg">
-              Experience Fast, Secure Crypto & Fiat Payroll & Invoicing with
-              VestRoll
-            </p>
-          </div>
+        <div className="hidden rounded-lg  lg:flex lg:w-1/2 relative">
+          <Image src={leftImage} alt="left image" />
         </div>
 
         {/* Right Panel - Account Selection */}
-        <div className="lg:w-1/2 flex flex-col justify-center p-6 lg:p-16">
+        <div className="lg:w-1/2 flex flex-col justify-center p-6 lg:p-16 md:mr-70">
           {/* Progress Indicator */}
           <div className="flex justify-center mb-8 lg:mb-12">
             <div className="flex gap-2">
@@ -171,7 +98,7 @@ export default function VestRollAccountSelection() {
               Continue
             </Button>
 
-            <div className="absolute bottom-4 right-8 flex justify-between items-center text-black text-sm w-[40%]">
+            <div className="absolute bottom-4 ml-0 hidden md:flex mb-2 justify-between items-center text-black text-sm w-[30%]">
               <span>© 2025, all rights reserved</span>
               <div className="flex gap-4">
                 <span>Privacy Policy</span>

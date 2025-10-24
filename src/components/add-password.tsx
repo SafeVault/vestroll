@@ -3,6 +3,7 @@ import React, { useState, useMemo } from "react";
 import { Eye, EyeOff, Check } from "lucide-react";
 import Image from "next/image";
 import left from "../../public/images/Left.png";
+import mobileLogo from "../../public/logo/mologo.png";
 
 interface PasswordRequirements {
   minLength: boolean;
@@ -81,7 +82,7 @@ export default function PasswordPage({
     <div className="w-full bg-white p-4">
       {/* Mobile Logo */}
       <div className="lg:hidden">
-        <Image src="/Vector.svg" alt="Globe icon" width={40} height={40} />
+        <Image src={mobileLogo} alt="Globe icon" width={40} height={40} />
       </div>
 
       <div className="flex h-full overflow-hidden">
