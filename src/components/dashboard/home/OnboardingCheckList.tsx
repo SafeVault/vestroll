@@ -2,23 +2,27 @@
 import Link from "next/link";
 import { ArrowRightIcon, CheckCircleIcon } from "../../../../public/svg";
 import CircularProgress from "./CircularProgress";
-import Bg from "../../../../public/images/onboarding_bg.png";
+// import Bg from "../../../../public/images/onboarding_bg.png";
 function OnboardingCheckList() {
   const checkList = [
     {
       name: "Verify email",
+      path: "verify-email",
       verify: true,
     },
     {
       name: "Provide company info",
+      path: "company-info",
       verify: false,
     },
     {
       name: "Complete KYB",
+      path: "kyb-verification",
       verify: false,
     },
     {
       name: "Fund wallet",
+      path: "connect-wallet",
       verify: false,
     },
   ];
@@ -45,7 +49,7 @@ function OnboardingCheckList() {
         {checkList.map((onboarding, index) => {
           return (
             <Link
-              href={`/${onboarding.name}`}
+              href={`/app/dashboard/${onboarding.path}`}
               className="p-4 rounded-lg border border-[#8674E7] bg-[#00000033] text-sm font-medium text-white  flex-1 flex justify-between items-center cursor-pointer"
               key={index}
             >
@@ -69,7 +73,7 @@ function OnboardingCheckList() {
           {checkList.slice(0, 2).map((onboarding, index) => {
             return (
               <Link
-                href={`/${onboarding.name}`}
+                href={`/app/dashboard/${onboarding.path}`}
                 className="p-4 rounded-lg border border-[#8674E7] bg-[#00000033] text-sm font-medium text-white  flex-1 flex justify-between items-center cursor-pointer"
                 key={index}
               >
