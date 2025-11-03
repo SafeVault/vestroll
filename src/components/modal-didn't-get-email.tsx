@@ -11,11 +11,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { useRouter } from "next/navigation";
 
 export default function ModalDdntGetEmail({ open = true }: { open: boolean }) {
   const [isOpen, setOpen] = useState(open);
-  const router = useRouter();
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setOpen}>
@@ -29,7 +27,7 @@ export default function ModalDdntGetEmail({ open = true }: { open: boolean }) {
 
         <AlertDialogHeader className="max-w-2xs !text-center m-auto">
           <Image
-            src="/done.svg"
+            src="/IconDidnt.png"
             alt="success"
             width={120}
             height={120}
