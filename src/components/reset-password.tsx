@@ -66,7 +66,7 @@ const ResetPassword: React.FC = () => {
         </div>
 
         {/* Right Side - Reset Password */}
-        <div className="relative flex-1 flex flex-col items-center mt-8 lg:mt-0 sm:justify-between justify-center px-0 sm:px-4">
+        <div className="relative flex-1 flex flex-col items-center mr-70 mt-8 lg:mt-0 sm:justify-between justify-center px-0 sm:px-4">
           <div className="flex flex-col justify-start sm:flex-row lg:items-center h-full sm:justify-center w-full max-w-2xl">
             <form
               className="w-full flex flex-col gap-y-12 max-w-[440px] mx-auto"

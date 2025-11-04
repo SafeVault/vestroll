@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 
-interface EmailVerificationProps {
+interface OTPVerificationProps {
   email: string;
   onVerify: (otp: string) => Promise<boolean>;
   onResend: () => Promise<void>;
@@ -18,7 +18,7 @@ const maskEmail = (email: string) =>
 const formatTime = (s: number) =>
   `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, "0")}`;
 
-const EmailVerification: React.FC<EmailVerificationProps> = ({
+const OTPVerification: React.FC<OTPVerificationProps> = ({
   email,
   onVerify,
   onResend,
@@ -124,7 +124,7 @@ const EmailVerification: React.FC<EmailVerificationProps> = ({
     <div className={`max-w-md  p-2  ${className}`}>
       <div className="mb-12">
         <h1 className="md:text-[40px] text-3xl font-bold text-[#17171C] mb-3">
-          Verify your email address
+          Provide the 6-digit code
         </h1>
         <p className="text-[#414F62] text-[16px] font-medium">
           Please enter the verification code sent to <br /> your email address{" "}
@@ -203,7 +203,7 @@ const EmailVerification: React.FC<EmailVerificationProps> = ({
             : "bg-[#5E2A8C] cursor-not-allowed"
         }`}
       >
-        {verifying ? "Verifying..." : "Verify"}
+        {verifying ? "Verifying..." : "continue"}
       </button>
 
       <div className="text-center mt-6">
@@ -229,4 +229,4 @@ const EmailVerification: React.FC<EmailVerificationProps> = ({
   );
 };
 
-export default EmailVerification;
+export default OTPVerification;
