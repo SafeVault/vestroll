@@ -13,18 +13,6 @@ export default function CreateContractsLayout({
     }
   }
 
-  const emitPrev = () => {
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("contracts:prev"))
-    }
-  }
-
-  const emitNext = () => {
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("contracts:next"))
-    }
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
         {/* Header */}
@@ -39,25 +27,8 @@ export default function CreateContractsLayout({
         {/* Content area */}
         <div className="bg-white rounded-lg p-6 md:p-8 shadow-sm lg:w-[852px] max-w-[852px]">
           {children}
-
-          {/* Bottom Navigation */}
-          <div className="flex justify-between mt-8 gap-4">
-            <button
-              onClick={emitPrev}
-              className="flex-1 py-3 border border-black text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
-            >
-              Prev
-            </button>
-            <button
-              onClick={emitNext}
-              className="flex-1 py-3 bg-[#5E2A8C] text-white rounded-lg hover:bg-purple-800 transition-colors font-medium"
-            >
-              Next
-            </button>
-          </div>
         </div>
       </div>
     </div>
   )
 }
-
