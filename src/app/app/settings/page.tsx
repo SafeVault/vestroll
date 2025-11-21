@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 
 import { Users, Globe, User } from "lucide-react";
 import PermissionsTab from "@/components/permissions/permissions-tab";
+import HiringTemplatesTab from "./hiring-templates/page";
+import AddressBook from "./address-book/page";
 
 interface StatProps {
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -94,17 +96,9 @@ export default function Page() {
       case "permissions":
         return <PermissionsTab />;
       case "hiring-templates":
-        return (
-          <div className="p-6 text-center text-gray-500">
-            Hiring Templates Content - Coming Soon
-          </div>
-        );
+        return <HiringTemplatesTab />;
       case "address-book":
-        return (
-          <div className="p-6 text-center text-gray-500">
-            Address Book Content - Coming Soon
-          </div>
-        );
+        return <AddressBook />;
       case "company":
       default:
         return <CompanySettingsContent />;

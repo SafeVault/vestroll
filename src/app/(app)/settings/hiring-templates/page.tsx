@@ -230,7 +230,7 @@ const CreateTemplateModal: React.FC<CreateTemplateModalProps> = ({
 
           {/* Main Content */}
           <div className="max-w-[480px] h-[696px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="bg-white rounded-lg shadow-sm p-6 space-y-6">
+            <div className="bg-white text-gray-950 rounded-lg shadow-sm p-6 space-y-6">
               {/* Job Title */}
               <div>
                 <label
@@ -367,7 +367,7 @@ const CreateTemplateModal: React.FC<CreateTemplateModalProps> = ({
                     setTimeOffDays(e.target.value)
                   }
                   min="0"
-                  className={`w-full px-4 py-3 bg-gray-50 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-500 transition-all ${
+                  className={`w-full px-4 py-3 text-gray-950 bg-gray-50 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-500 transition-all ${
                     errors.timeOffDays ? "ring-2 ring-red-500" : ""
                   }`}
                   placeholder=""
@@ -493,7 +493,7 @@ export default function SettingsHiringTemplatesPage() {
               className="h-auto w-[126px] sm:w-[180px]"
             />
             <h3 className="mt-6 text-sm sm:text-base font-semibold text-[#111827]">
-              You haven't created any hiring templates
+              You haven&apos;t created any hiring templates
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-[#6b7280]">
               You can create and manage hiring templates here
