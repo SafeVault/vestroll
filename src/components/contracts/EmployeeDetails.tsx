@@ -191,10 +191,10 @@ export default function EmployeeDetails() {
           onClick={() => setShowSavedEmployees(!showSavedEmployees)}
           className="w-full mb-6 p-4 bg-[#F3EBF9] hover:bg-purple-100 rounded-[8px] flex items-center justify-between transition-colors"
         >
-          <span className="text-[#5A42DE] font-medium">
+          <span className="text-primary-500 font-medium">
             Select saved employee
           </span>
-          <ChevronRight className="w-5 h-5 text-[#5A42DE]" />
+          <ChevronRight className="w-5 h-5 text-primary-500" />
         </button>
 
         {/* Form Fields */}

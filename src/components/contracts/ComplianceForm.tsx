@@ -4,7 +4,11 @@ import { ComplianceDetails } from "@/types/interface";
 import { FC } from "react";
 
 export const ComplianceForm: FC = () => {
-  const { register, handleSubmit } = useForm<ComplianceDetails>();
+  const { register, handleSubmit } = useForm<ComplianceDetails>({
+    defaultValues: {
+      agreementType: "standard",
+    },
+  });
 
   return (
     <div className="space-y-8">
@@ -18,6 +22,7 @@ export const ComplianceForm: FC = () => {
                       {...register("agreementType")}
                       value="standard"
                       id="standardServiceAgreement"
+                      name="serviceAgreement"
                       className="absolute z-10 border rounded-full appearance-none border-gray-150 peer size-4 checked:border-primary-200 dark:border-gray-500 dark:checked:border-primary-400"
                     />
                     <div className="absolute inset-1/2 size-2.5 rounded-full bg-primary-500 opacity-0 transition-opacity duration-150 ease-in-out peer-checked:opacity-100 dark:bg-primary-400 -translate-x-1/2 -translate-y-1/2" />
@@ -37,6 +42,7 @@ export const ComplianceForm: FC = () => {
                       {...register("agreementType")}
                       value="custom"
                       id="customAgreement"
+                      name="serviceAgreement"
                       className="absolute z-10 border rounded-full appearance-none border-gray-150 peer size-4 checked:border-primary-200 dark:border-gray-500 dark:checked:border-primary-400"
                     />
                     <div className="absolute inset-1/2 size-2.5 rounded-full bg-primary-500 opacity-0 transition-opacity duration-150 ease-in-out peer-checked:opacity-100 dark:bg-primary-400 -translate-x-1/2 -translate-y-1/2" />
@@ -45,7 +51,7 @@ export const ComplianceForm: FC = () => {
                     htmlFor="customAgreement"
                     className="text-xs font-medium leading-4 text-[#414F62] sm:pt-2"
                   >
-                    Use your own custom agreement
+                    Use your own custom agreement (For custom uploaded contracts, project details will appear in an addendum section attached to your PDF file.)
                   </label>
                 </div>
               </div>

@@ -1,3 +1,1 @@
-export { default } from "../../(app)/contract-page/page";
-
-
+export { default } from "../../(app)/contracts/page";

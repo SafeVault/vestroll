@@ -306,3 +306,24 @@ body {
 .notification-scrollbar::-webkit-scrollbar-thumb:active {
   background-color: #374151;
 }
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #BDC5D1 transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #424345;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #bfc0c2;
+}

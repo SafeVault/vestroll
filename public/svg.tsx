@@ -1260,3 +1260,48 @@ export const ReceiveIcon = () => (
     />
   </svg>
 );
+
+export const CalendarOngoingIcon = () => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3359 3.33334V8.33334" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M26.6641 3.33334V8.33334" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M11.6641 21.6667H24.9974" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M11.6641 28.3333H18.0641" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M36.6693 31.6667C36.6693 33.6667 35.786 35.45 34.4026 36.6667C33.2193 37.7 31.6859 38.3333 30.0026 38.3333C26.3193 38.3333 23.3359 35.35 23.3359 31.6667C23.3359 29.5667 24.3026 27.6833 25.8359 26.4667C26.9859 25.55 28.4359 25 30.0026 25C33.6859 25 36.6693 27.9833 36.6693 31.6667Z" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M30.4193 29.5833V32.0833L28.3359 33.3333" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M35 26.6667V16.0833C35 8.25001 32.2167 6.13334 26.6667 5.83334H13.3333C7.78333 6.15001 5 8.25001 5 16.0833V26.3833C5 33.25 6.66667 36.6833 15 36.6833H25" stroke="#5E2A8C" strokeWidth="2.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+);
+
+export const CoinsIcon = () => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.3359 19.0003C13.3359 20.2837 14.3359 21.3337 15.5526 21.3337H18.0526C19.1193 21.3337 19.9859 20.417 19.9859 19.3003C19.9859 18.0837 19.4526 17.6503 18.6693 17.367L14.6693 15.967C13.8693 15.6837 13.3359 15.2503 13.3359 14.0337C13.3359 12.917 14.2026 12.0003 15.2693 12.0003H17.7693C19.0026 12.017 20.0026 13.0503 20.0026 14.3337" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M16.6641 21.4168V22.6502" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M16.6641 10.6836V11.9836" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M16.6526 29.9667C24.0072 29.9667 29.9693 24.0046 29.9693 16.65C29.9693 9.29542 24.0072 3.33334 16.6526 3.33334C9.29801 3.33334 3.33594 9.29542 3.33594 16.65C3.33594 24.0046 9.29801 29.9667 16.6526 29.9667Z" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M21.6328 33.1333C23.1328 35.25 25.5828 36.6333 28.3828 36.6333C32.9328 36.6333 36.6328 32.9333 36.6328 28.3833C36.6328 25.6167 35.2661 23.1667 33.1828 21.6667" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+);
+
+export const DollarCircleIcon = () => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.4531 23.8831C14.4531 26.0331 16.1031 27.7664 18.1531 27.7664H22.3365C24.1198 27.7664 25.5698 26.2497 25.5698 24.3831C25.5698 22.3497 24.6865 21.6331 23.3698 21.1664L16.6531 18.8331C15.3365 18.3664 14.4531 17.6497 14.4531 15.6164C14.4531 13.7497 15.9031 12.2331 17.6865 12.2331H21.8698C23.9198 12.2331 25.5698 13.9664 25.5698 16.1164" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M20 10V30" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M20.0026 36.6667C29.2073 36.6667 36.6693 29.2048 36.6693 20C36.6693 10.7953 29.2073 3.33334 20.0026 3.33334C10.7979 3.33334 3.33594 10.7953 3.33594 20C3.33594 29.2048 10.7979 36.6667 20.0026 36.6667Z" stroke="#5E2A8C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+);
+
+export const CalendarIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 2V5" stroke="#5E2A8C" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M16 2V5" stroke="#5E2A8C" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M3.5 9.09H20.5" stroke="#5E2A8C" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#5E2A8C" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M15.6976 13.7H15.7066" stroke="#5E2A8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M15.6976 16.7H15.7066" stroke="#5E2A8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M11.9945 13.7H12.0035" stroke="#5E2A8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M11.9945 16.7H12.0035" stroke="#5E2A8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M8.29138 13.7H8.30036" stroke="#5E2A8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M8.29138 16.7H8.30036" stroke="#5E2A8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+);

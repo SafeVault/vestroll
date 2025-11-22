@@ -33,7 +33,7 @@ const TableFilterHeader: React.FC<TableFilterHeaderProps> = ({
         <p className="font-semibold text-text-header">{selectedTab}</p>
       )}
       <div className="flex items-center w-full gap-1 md:max-w-85">
-        <div className="flex justify-between w-full px-4 py-2 bg-white border rounded-lg border-border-primary h-9">
+        <div className="flex justify-between items-center w-full px-4 py-2 bg-white border rounded-lg border-border-primary h-9">
           <input
             type="search"
             className="w-full text-xs text-gray-400 outline-none"

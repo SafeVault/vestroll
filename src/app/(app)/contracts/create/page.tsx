@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ContractDetails from "@/components/contracts/ContractDetails";
 import ProjectDetails from "@/components/contracts/ProjectDetails";
 import EmployeeDetails from "@/components/contracts/EmployeeDetails";
 import { ComplianceForm } from "@/components/contracts/ComplianceForm";
 import ContractReviewAccordion from "@/components/contracts/Sign&Review";
+import ContractReviewModal from "@/components/contracts/ContractReviewModal";
 
 interface ContractFormData {
+  contractType: number;
   clientName: string;
   clientEmail: string;
   clientPhone: string;
@@ -40,6 +42,7 @@ interface ContractFormData {
   taxId: string;
   taxRate: string;
   uploadedFiles: File[];
+  paymentType: string;
   paymentFrequency?: "Hourly" | "Daily" | "Weekly" | "Per Deliverable";
 }
 
@@ -58,7 +61,9 @@ const steps = [
 
 export default function CreateContractPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [showReviewModal, setShowReviewModal] = useState(false);
   const [formData, setFormData] = useState<ContractFormData>({
+    contractType: 0,
     clientName: "",
     clientEmail: "",
     clientPhone: "",
@@ -67,7 +72,7 @@ export default function CreateContractPage() {
     endDate: "",
     terminationNotice: "",
     network: "Ethereum",
-    asset: "USDT",
+    asset: "USD", //USD for now
     amount: "2000.00",
     calculatedAmount: "1974.849",
     invoiceFrequency: "",
@@ -85,41 +90,31 @@ export default function CreateContractPage() {
     taxId: "",
     taxRate: "",
     uploadedFiles: [],
+    paymentType: "",
     paymentFrequency: "Hourly",
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // Listen to layout buttons
-  useEffect(() => {
-    const onPrev = () => {
-      if (currentStep > 1) {
-        setCurrentStep((s) => s - 1);
+  const onPrev = () => {
+    if (currentStep > 1) {
+      setCurrentStep((s) => s - 1);
+    }
+  };
+
+  const onNext = () => {
+    // Add validation logic here before moving to next step
+    if (currentStep < 6) {
+      // You can add step-specific validation here
+      if (currentStep === 4) {
+        // Validate contract details before moving forward
+        // The ContractDetails component handles its own validation
       }
-    };
-
-    const onNext = () => {
-      // Add validation logic here before moving to next step
-      if (currentStep < 6) {
-        // You can add step-specific validation here
-        if (currentStep === 4) {
-          // Validate contract details before moving forward
-          // The ContractDetails component handles its own validation
-        }
-        setCurrentStep((s) => s + 1);
-      } else if (currentStep === 6) {
-        // Final step - submit the form
-        handleCreateContract();
-      }
-    };
-
-    window.addEventListener("contracts:prev", onPrev);
-    window.addEventListener("contracts:next", onNext);
-
-    return () => {
-      window.removeEventListener("contracts:prev", onPrev);
-      window.removeEventListener("contracts:next", onNext);
-    };
-  }, [currentStep]);
+      setCurrentStep((s) => s + 1);
+    } else if (currentStep === 6) {
+      // show review modal if current step is 6
+      setShowReviewModal(true);
+    }
+  };
 
   const ProgressBar = () => (
     <div className="mb-8">
@@ -151,6 +146,10 @@ export default function CreateContractPage() {
     setErrors(newErrors);
   };
 
+  const handleToggleReviewModal = () => {
+    setShowReviewModal(!showReviewModal);
+  }
+
   const handleCreateContract = () => {
     console.log("Creating contract with data:", formData);
     // TODO: Add API call to create contract
@@ -169,29 +168,44 @@ export default function CreateContractPage() {
     switch (currentStep) {
       case 1:
         return (
-          <div className="text-center py-12">
-            <h3 className="text-xl font-semibold text-[#17171C] mb-4">
-              Choose Contract Type
-            </h3>
-            <p className="text-[#7F8C9F] mb-8">
-              Select the type of contract you want to create
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <button className="p-6 border-2 border-[#E5E7EB] rounded-lg hover:border-[#5E2A8C] transition-colors">
-                <div className="text-4xl mb-2">📝</div>
-                <h4 className="font-semibold text-[#17171C] mb-1">Freelance</h4>
-                <p className="text-sm text-[#7F8C9F]">For independent contractors</p>
-              </button>
-              <button className="p-6 border-2 border-[#E5E7EB] rounded-lg hover:border-[#5E2A8C] transition-colors">
-                <div className="text-4xl mb-2">💼</div>
-                <h4 className="font-semibold text-[#17171C] mb-1">Full-time</h4>
-                <p className="text-sm text-[#7F8C9F]">For permanent employees</p>
-              </button>
-              <button className="p-6 border-2 border-[#E5E7EB] rounded-lg hover:border-[#5E2A8C] transition-colors">
-                <div className="text-4xl mb-2">⏱️</div>
-                <h4 className="font-semibold text-[#17171C] mb-1">Part-time</h4>
-                <p className="text-sm text-[#7F8C9F]">For part-time workers</p>
-              </button>
+          <div className="py-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              <div onClick={() => {
+                    handleFormDataChange({ ...formData, contractType: 1 });
+                    setCurrentStep(currentStep + 1);
+                  }}
+                className="w-full max-w-96 p-6 bg-[#F5F6F7] rounded-lg border border-transparent
+                        hover:border-primary-500 hover:bg-[#F3EBF9] transition-colors
+                          cursor-pointer">
+                <h4 className="font-semibold text-[#17171C] mb-1">Fixed Rate</h4>
+                <p className="text-sm text-[#7F8C9F]">
+                  For contracts that have a fixed rate each payment cycle.
+                </p>
+              </div>
+              <div onClick={() => {
+                    handleFormDataChange({ ...formData, contractType: 2 });
+                    setCurrentStep(currentStep + 1);
+                  }}
+                className="w-full max-w-96 p-6 bg-[#F5F6F7] rounded-lg border border-transparent
+                        hover:border-primary-500 hover:bg-[#F3EBF9] transition-colors
+                          cursor-pointer">
+                <h4 className="font-semibold text-[#17171C] mb-1">Pay as you go</h4>
+                <p className="text-sm text-[#7F8C9F]">
+                  For contracts that require time sheets or work submissions each payment cycle.
+                </p>
+              </div>
+              <div onClick={() => {
+                    handleFormDataChange({ ...formData, contractType: 3 });
+                    setCurrentStep(currentStep + 1);
+                  }}
+                className="w-full max-w-96 p-6 bg-[#F5F6F7] rounded-lg border border-transparent
+                        hover:border-primary-500 hover:bg-[#F3EBF9] transition-colors
+                          cursor-pointer">
+                <h4 className="font-semibold text-[#17171C] mb-1">Milestone</h4>
+                <p className="text-sm text-[#7F8C9F]">
+                  For contracts with milestones that get paid each time they're completed.
+                </p>
+              </div>
             </div>
           </div>
         );
@@ -223,6 +237,30 @@ export default function CreateContractPage() {
     <div className="space-y-6">
       <ProgressBar />
       {renderStep()}
+      {/* Bottom Navigation */}
+      { currentStep > 1 && (
+      <div className="flex justify-between mt-8 gap-4">
+        <button
+          onClick={onPrev}
+          className="flex-1 py-3 border border-black text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+        >
+          Prev
+        </button>
+        <button
+          onClick={onNext}
+          className="flex-1 py-3 bg-[#5E2A8C] text-white rounded-lg hover:bg-purple-800 transition-colors font-medium"
+        >
+          Next
+        </button>
+      </div>
+      )}
+      {showReviewModal && (
+        <ContractReviewModal
+          onClose={() => setShowReviewModal(false)}
+          onConfirm={handleCreateContract}  // your final submit handler
+          formData={formData}
+        />
+      )}
     </div>
   );
 }

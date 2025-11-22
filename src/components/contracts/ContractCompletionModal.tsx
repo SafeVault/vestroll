@@ -1,11 +1,10 @@
 import { Check, CopyIcon } from "lucide-react";
 import { useState } from "react";
 import { CalendarCheckIcon } from "../../../public/svg";
-import useModal from "@/hooks/useModal";
 
+// TODO: Update the link to be dynamic
 function ContractCompletionModal() {
   const [isCopied, setIsCopied] = useState(false);
-  const { hideModal } = useModal();
   const handleCopyToClipBoard = () => {
     navigator.clipboard
       .writeText("https://app.VestRoll.co/id=96abbf24-34f6-49.")
@@ -55,12 +54,13 @@ function ContractCompletionModal() {
           </button>
         </div>
       </div>
-      <button
-        onClick={() => hideModal()}
-        className="w-full font-medium text-white rounded-lg bg-primary-500 h-14 cursor-pointer"
+      <a
+        href="/app/contracts"
       >
-        All done
-      </button>
+        <button className="w-full font-medium text-white rounded-lg bg-primary-500 h-14 cursor-pointer">
+          All done
+        </button>
+      </a>
     </div>
   );
 }

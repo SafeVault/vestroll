@@ -1,11 +1,10 @@
 import EmptyState from "@/components/ui/EmptyState";
-import { Check, ChevronRight, XCircle, Clock } from "lucide-react";
-import Link from "next/link";
+import { Check, XCircle, Clock, Clock4Icon, Zap } from "lucide-react";
 import { cn } from "@/utils/classNames";
 import { Transaction, transactions } from "@/data/transactions";
 import { currencies } from "@/util/constant";
 
-function TransactionsList() {
+function ContractTypeMetric({ contract }: { contract: any }) {
   const getStatusIcon = (status: Transaction['status']) => {
     switch (status) {
       case 'Pending':
@@ -42,15 +41,41 @@ function TransactionsList() {
   return (
     <section className="p-2 sm:p-4">
       <div className="bg-white sm:bg-white p-4 rounded-lg">
-        <div className="flex items-center w-full justify-between mb-6">
-          <h2 className="text-base font-semibold text-gray-900">Transactions</h2>
-          <Link
-            href="/transactions"
-            className="flex gap-1 text-xs font-medium text-[#5A42DE] items-center hover:opacity-80"
-          >
-            See all
-            <ChevronRight size={14} />
-          </Link>
+        <div className="space-y-4 mb-6">
+            {contract.contractType === "Milestone"
+            ? (<>
+                <h2 className="text-base font-semibold text-gray-900">
+                    Milestone
+                </h2>
+            </>
+            ) : (
+                <>
+                <h2 className="text-base font-semibold text-gray-900">
+                    Timesheet record
+                </h2>
+                <div className="flex space-x-3 divide-x divide-gray-300">
+                    <div className="flex gap-2 pr-6">
+                        <div className="bg-[#F3EBF9] flex items-center px-4 rounded-lg">
+                            <Clock4Icon className="w-4 h-4 text-primary-500"/>
+                        </div>
+                        <div>
+                            <small className="text-gray-400">Unit</small>
+                            <p>Hourly</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-2 pl-6">
+                        <div className="bg-[#F3EBF9] flex items-center px-4 rounded-lg">
+                            <Zap className="w-4 h-4 text-primary-500"/>
+                        </div>
+                        <div>
+                            <small className="text-gray-400">Unit</small>
+                            <p>30 USD</p>
+                        </div>
+                    </div>
+                </div>
+                </>
+            )}
+
         </div>
 
         {transactions.length > 0 ? (
@@ -58,10 +83,15 @@ function TransactionsList() {
             <table className="min-w-full">
               <thead className="hidden md:table-header-group ltr:text-left rtl:text-right bg-gray-50 rounded-t-lg text-xs font-medium">
                 <tr className="*:font-medium *:text-gray-500">
-                  <th className="px-3 py-4 whitespace-nowrap"></th>
-                  <th className="px-3 py-4 whitespace-nowrap">Transaction ID</th>
-                  <th className="px-3 py-4 whitespace-nowrap">Description</th>
-                  <th className="px-3 py-4 whitespace-nowrap">Amount</th>
+                  <th className="px-3 py-4 whitespace-nowrap">
+                    {contract.contractType === "Milestone" ? "Milestone No" : "Rate"}
+                  </th>
+                  <th className="px-3 py-4 whitespace-nowrap">
+                    {contract.contractType === "Milestone" ? "Milestone name" : "Total worked"}
+                  </th>
+                  <th className="px-3 py-4 whitespace-nowrap">
+                    {contract.contractType === "Milestone" ? "Amount" : "Total amount"}
+                  </th>
                   <th className="px-3 py-4 whitespace-nowrap">Status</th>
                   <th className="px-3 py-4 whitespace-nowrap">Timestamp</th>
                 </tr>
@@ -70,12 +100,6 @@ function TransactionsList() {
               <tbody className="divide-y divide-gray-200">
                 {transactions.map((transaction, index) => (
                 <tr className="*:text-[#17171C] *:first:font-medium" key={index}>
-                  <td className="hidden md:block px-3 py-4">
-                    <input
-                      type="checkbox"
-                      className="w-4 h-4 rounded border-gray-300 text-[#5A42DE] focus:ring-[#5A42DE]"
-                    />
-                  </td>
                   <td className="hidden md:table-cell px-3 py-4 whitespace-nowrap">{transaction.id}</td>
                   <td className="px-3 py-4 w-52 md:w-auto">
                     <div className="line-clamp-1 md:line-clamp-none md:whitespace-nowrap">
@@ -131,4 +155,4 @@ function TransactionsList() {
   );
 }
 
-export default TransactionsList;
+export default ContractTypeMetric;

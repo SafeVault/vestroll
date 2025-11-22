@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  ChevronDown,
   Briefcase,
   Calendar,
   Clock,
@@ -11,11 +10,8 @@ import EmployeeCard from "./EmployeCard";
 import PaymentCard from "./PaymentCard";
 import ComplianceCard from "./ComplianceCard";
 import { ContractProps } from "@/types/interface";
-import useModal from "@/hooks/useModal";
-import ContractReviewModal from "./ContractReviewModal";
 
 export default function ContractReviewAccordion() {
-  const { hideModal, showEnhancedModal } = useModal();
   const [openSections, setOpenSections] = useState({
     details: true,
     employee: false,
@@ -110,22 +106,7 @@ export default function ContractReviewAccordion() {
       "In the event that any payment due under this Agreement is not received by the Contractor within fifteen (15) days after the due date, the Client agrees to pay a late fee of 1.5% per month on any overdue amount, or the maximum amount permitted by law, whichever is lower.",
     additional_agreement: "",
   };
-  const closeModal = () => {
-    hideModal();
-  };
 
-  const OpenContractReviewModal = () => {
-    showEnhancedModal(<ContractReviewModal />, {
-      showCloseButton: false,
-      size: "md",
-      onCancel: closeModal,
-    });
-  };
-  useEffect(() => {
-    window.addEventListener("contracts:next", OpenContractReviewModal);
-    return () =>
-      window.removeEventListener("contracts:next", OpenContractReviewModal);
-  });
   return (
     <div className="max-w-full min-h-screen space-y-2">
       {/* Project Details Section */}
