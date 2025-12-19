@@ -251,7 +251,7 @@ function TeamMgtTimeSheet() {
     getStatus: (m) => m.status,
 
     header: {
-      icon: (<Clock2Icon className="text-purple-600" size={24} />),
+      icon: (<Clock2Icon size={24} />),
       title: (m) => m.employeeName,
       subtitle: (m) =>
         `${m.submittedAt} - ${new Date().toLocaleDateString()}`,

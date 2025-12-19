@@ -237,7 +237,7 @@ function TeamMgtTimeoff() {
   getStatus: (t) => t.status,
 
   header: {
-    icon: (<BookmarkMinusIcon className="text-purple-600" size={24} />),
+    icon: (<BookmarkMinusIcon size={24} />),
     title: (t) => t.employeeName,
     subtitle: (t) => t.employeeRole,
   },

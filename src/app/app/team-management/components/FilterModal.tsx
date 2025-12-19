@@ -73,7 +73,7 @@ export const FilterModal = ({
                     }
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       !localFilters[group.key] || localFilters[group.key] === "All"
-                        ? "bg-purple-100 text-purple-700 border border-purple-300"
+                        ? "bg-purple-100 text-primary-500 border border-purple-300"
                         : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
                     }`}
                   >
@@ -87,7 +87,7 @@ export const FilterModal = ({
                       }
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                         localFilters[group.key] === option.value
-                          ? "bg-purple-100 text-purple-700 border border-purple-300"
+                          ? "bg-purple-100 text-primary-500 border border-purple-300"
                           : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
                       }`}
                     >
@@ -101,13 +101,13 @@ export const FilterModal = ({
           <div className="flex gap-3 p-6 border-t border-gray-200">
             <button
               onClick={handleCancel}
-              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               onClick={handleApply}
-              className="flex-1 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors"
+              className="flex-1 px-4 py-2.5 bg-primary-500 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors cursor-pointer"
             >
               Apply
             </button>

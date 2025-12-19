@@ -46,7 +46,7 @@ export const StatusModal = ({
             <h3 className="text-base text-center relative bottom-3 sm:text-lg font-semibold mb-4">Reject Milestone</h3>
 
             <textarea
-              className="w-full mt-4 outline-none border rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full mt-4 outline-none border rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               rows={4}
               placeholder="Enter reason for rejection..."
               value={reason}
@@ -62,7 +62,7 @@ export const StatusModal = ({
 
             <Button
               onClick={handleReject}
-              className="w-full mt-5 bg-purple-800 text-white hover:bg-red-700 text-sm sm:text-base"
+              className="w-full mt-5 bg-primary-500 text-white hover:bg-red-700 text-sm sm:text-base"
             >
               Reject
             </Button>

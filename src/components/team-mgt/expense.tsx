@@ -251,7 +251,7 @@ function TeamMgtExpense() {
   getStatus: (e) => e.status,
 
   header: {
-    icon: (<BookmarkMinusIcon className="text-purple-600" size={24} />),
+    icon: (<BookmarkMinusIcon size={24} />),
     title: (e) => e.name,
     subtitle: (e) => e.category,
   },

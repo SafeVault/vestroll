@@ -61,7 +61,7 @@ export function DetailsView<T>({
         <Card className="p-5 md:p-6 rounded-xl bg-white shadow-xs">
           <div className="flex md:flex-row justify-between items-start md:items-center gap-2 mb-6">
             <div className="flex items-center gap-3">
-              <div className="bg-purple-200 py-3 px-3 rounded-md">
+              <div className="bg-[#F3EBF9] text-primary-500 py-3 px-3 rounded-md">
                 {config.header.icon}
               </div>
               <div>
@@ -127,7 +127,7 @@ export function DetailsView<T>({
                     <p className="text-gray-500">Submitted on</p>
                 </div>
 
-                <div className="mt-2 text-purple-600 cursor-pointer">
+                <div className="mt-2 text-primary-500 cursor-pointer">
                     <div className="justify-between items-center flex">
                         <span onClick={() => window.open(config.attachments.url, "_blank")} className="pl-1">File_name.pdf</span>
                         <p className="text-gray-700">{config.attachments.submittedAt}</p>
@@ -155,15 +155,15 @@ export function DetailsView<T>({
             <Card className="p-4 rounded-xl shadow-xs">
                 <div className="flex justify-between">
                 <div className="flex items-center gap-3">
-                    <div className="bg-purple-200 py-3 px-3 rounded-md">
-                        <BuildingIcon className="text-purple-600" size={20} />
+                    <div className="bg-[#F3EBF9] py-3 px-3 rounded-md">
+                        <BuildingIcon className="text-primary-500" size={20} />
                     </div>
                     <div>
                         <p className="font-medium">Quikdash</p>
                         <p className="text-sm text-gray-500">Pay as you go</p>
                     </div>
                 </div>
-                <button onClick={() => window.open(config.footerCards.contract, "_blank")} className="text-purple-600 relative top-3 gap-1 flex items-center text-sm hover:underline">
+                <button onClick={() => window.open(config.footerCards.contract, "_blank")} className="text-primary-500 relative top-3 gap-1 flex items-center text-sm hover:underline cursor-pointer">
                     View contract
 
                     <ExternalLink size={15}/>
@@ -174,15 +174,15 @@ export function DetailsView<T>({
             <Card className="p-4 rounded-xl shadow-xs">
                 <div className="flex justify-between gap-4">
                 <div className="flex items-center gap-3">
-                    <div className="bg-purple-200 py-3 px-3 rounded-md">
-                        <UserIcon className="text-purple-600" size={20} />
+                    <div className="bg-[#F3EBF9] py-3 px-3 rounded-md">
+                        <UserIcon className="text-primary-500" size={20} />
                     </div>
                     <div>
                         <p className="font-medium">{config.footerCards.employeeName}</p>
                         <p className="text-sm text-gray-500">{config.footerCards.employeeRole}</p>
                     </div>
                 </div>
-                <button onClick={() => window.open(`/app/team-management/${config.footerCards.employeeId}`, "_blank")} className="text-purple-600 relative top-3  gap-1 flex items-center text-sm hover:underline">
+                <button onClick={() => window.open(`/app/team-management/${config.footerCards.employeeId}`, "_blank")} className="text-primary-500 relative top-3  gap-1 flex items-center text-sm hover:underline cursor-pointer">
                     View details
                     <ExternalLink size={15}/>
                 </button>

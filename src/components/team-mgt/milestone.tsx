@@ -251,7 +251,7 @@ function TeamMgtMilestone() {
   getStatus: (m) => m.status,
 
   header: {
-    icon: (<FlagIcon className="text-purple-600" size={24} />),
+    icon: (<FlagIcon size={24} />),
     title: (m) => m.milestoneName,
     subtitle: (m) =>
       `${m.milestoneCompleted} of ${m.totalMilestone} milestones`,
