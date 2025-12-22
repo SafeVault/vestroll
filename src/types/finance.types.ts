@@ -18,9 +18,13 @@ export interface Transaction {
   asset: string;
   status: TransactionStatus;
   timestamp: string;
+  network: string;
+  fee: string;
+  destinationAddress?: string;
+  type: "Deposit" | "Withdrawal" | "Invoice";
 }
 
-export type TransactionStatus = 'Pending' | 'Failed' | 'Successful';
+export type TransactionStatus = "Pending" | "Failed" | "Successful";
 
 export interface PaginationProps {
   currentPage: number;

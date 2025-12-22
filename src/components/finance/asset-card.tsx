@@ -1,30 +1,48 @@
-import React from 'react';
-import Image from 'next/image';
-import { Asset } from '@/types/finance.types';
+import React from "react";
+import Image from "next/image";
+import { Asset } from "@/types/finance.types";
+import { ChevronRight } from "lucide-react";
 
 interface AssetCardProps {
   asset: Asset;
+  onClick?: () => void;
 }
 
-export function AssetCard ({ asset }:AssetCardProps){
+export function AssetCard({ asset, onClick }: AssetCardProps) {
   return (
-    <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+    <div
+      className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-all cursor-pointer group"
+      onClick={onClick}
+    >
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-3 flex-1">
-          <Image 
-  src={asset.icon} 
-  alt={asset.symbol} 
-  width={40} 
-  height={40}
-  className="object-contain"
-/>
+          <div
+            className={`w-10 h-10 rounded-full flex items-center justify-center ${asset.bgColor} group-hover:scale-105 transition-transform`}
+          >
+            <Image
+              src={asset.icon}
+              alt={asset.symbol}
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+          </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-[#0F172A] text-sm mb-0.5">
-              {asset.name}
-            </h3>
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold text-[#0F172A] text-sm mb-0.5">
+                {asset.name}
+              </h3>
+              <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            </div>
             <p className="text-xs text-[#64748B]">
-              {asset.price}{' '}
-              <span className="text-[#EF4444]">{asset.change}</span>
+              {asset.price}{" "}
+              <span
+                className={
+                  asset.change.includes("-") ? "text-red-500" : "text-green-500"
+                }
+              >
+                {asset.change}
+              </span>
             </p>
           </div>
         </div>
@@ -37,4 +55,4 @@ export function AssetCard ({ asset }:AssetCardProps){
       </div>
     </div>
   );
-};
+}
