@@ -31,7 +31,7 @@ const EmployeeProfileHeader: React.FC<EmployeeProfileHeaderProps> = ({
     };
 
   return (
-    <div className=" p-4 sm:p-6 mb-6">
+    <div className="py-4 sm:py-6 mb-6">
       <div className="flex flex-col sm:flex-row items-start gap-4">
         {/* Avatar */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg flex items-center justify-center font-bold text-xl sm:text-2xl">

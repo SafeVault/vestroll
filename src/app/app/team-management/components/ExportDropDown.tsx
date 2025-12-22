@@ -11,7 +11,7 @@ export const ExportDropdown = ({ isOpen, onToggle }: ExportDropdownProps) => (
   <div className="relative">
     <button
       onClick={onToggle}
-      className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+      className="bg-primary-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 cursor-pointer"
     >
       <Upload size={18} />
       <span className="hidden sm:inline">Export</span>

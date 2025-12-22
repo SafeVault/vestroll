@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { currencies } from "@/util/constant";
 
 interface Contract {
   id: string;
@@ -20,7 +21,7 @@ export default function ContractGrid() {
       id: "1",
       title: "Invyler Website & Webpage Design",
       amount: 6000.0,
-      currency: "USDT",
+      currency: "USD",
       status: "Active",
       startDate: "20th Oct 22",
       endDate: "26th Nov 22",
@@ -30,7 +31,7 @@ export default function ContractGrid() {
       id: "2",
       title: "Invyler Mobile App Design",
       amount: 4500.0,
-      currency: "USDT",
+      currency: "USD",
       status: "Completed",
       startDate: "15th Sep 22",
       endDate: "10th Oct 22",
@@ -40,7 +41,7 @@ export default function ContractGrid() {
       id: "3",
       title: "Brand Identity Design",
       amount: 2800.0,
-      currency: "USDT",
+      currency: "USD",
       status: "Completed",
       startDate: "15th Nov 22",
       endDate: "30th Nov 22",
@@ -85,7 +86,7 @@ export default function ContractGrid() {
             </div>
 
             <div className="flex items-center gap-2 bg-fill-primary rounded-xl px-3 py-1">
-              <Image src="/Tether.svg" alt="Currency" width={15} height={15} />
+              <Image src={currencies[0].icon} alt="Currency" width={15} height={15} />
               <span className="text-sm font-medium text-text-primary">
                 {contract.amount.toLocaleString()} {contract.currency}
               </span>

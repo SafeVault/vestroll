@@ -93,59 +93,12 @@ const TeamManagementPage: React.FC = () => {
   );
 
   return (
-    <div className="flex flex-col min-h-screen   ">
+    <div className="w-full flex flex-col min-h-screen">
       {/* Header */}
       <header
-        className="bg-background-b0  fixed top-0 md:top-14 lg:top-0 left-0  
-    w-full              
-    lg:left-[18rem] lg:w-[calc(100%-18rem)] 
-      py-4  z-10 "
+        className="bg-background-b0 w-full py-4"
       >
-        <div className="flex items-center justify-between px-7 border-b  pb-3 border-b-stroke-primary">
-          {/* Search Bar */}
-          <div className="flex-1 max-w-md hidden md:block">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-tertiary w-4 h-4" />
-              <input
-                type="text"
-                placeholder="Search..."
-                className=" w-80 pl-10 pr-4 py-2 bg-background-b0 border border-stroke-primary rounded-lg text-text-primary placeholder-text-tertiary focus:outline-none focus:border-brand-default focus:ring-1 focus:ring-brand-default transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div className="flex items-center w-full">
-            {/* Mobile menu button */}
-            <button
-              type="button"
-              aria-label="Open menu"
-              className="rounded-lg p-2 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9] md:hidden"
-              onClick={() => setMobileOpen(true)}
-            >
-              <Menu className="h-5 w-5" />
-            </button>
-
-            {/* Right side content */}
-            <div className="flex items-center gap-2 sm:gap-4 ml-auto">
-              <Search className="text-text-tertiary md:hidden block w-4 h-4" />
-              <button className="p-2 hover:bg-fill-primary rounded-lg transition-colors relative">
-                <Bell className="w-5 h-5 text-text-secondary" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-default rounded-full"></span>
-              </button>
-              <UserDropdown />
-            </div>
-
-            {/* Sidebar (only rendered mobileOpen = true) */}
-            {mobileOpen && (
-              <Sidebar
-                mobileOpen={mobileOpen}
-                onCloseMobile={() => setMobileOpen(false)}
-              />
-            )}
-          </div>
-        </div>
-        <div className="px-7 space-y-3 pt-2">
+        <div className="px-7 space-y-3 pt-2 w-fit">
           <p
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => router.back()}
@@ -157,7 +110,8 @@ const TeamManagementPage: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="px-6 sm:p-6 bg-background-b0 md:mt-40 mt-24">
+      <main className="p-4">
+      <section className="max-w-5xl p-6 bg-background-b0 rounded-xl">
         {/* Page Title */}
         <div className="">
           <p className="text-text-primary text-sm">Personal Information</p>
@@ -177,6 +131,7 @@ const TeamManagementPage: React.FC = () => {
           {/* Contract Cards Grid */}
           <ContractCard />
         </div>
+      </section>
       </main>
     </div>
   );

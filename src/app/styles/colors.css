@@ -42,8 +42,9 @@
   --color-border-primary: #dce0e5;
   --color-text-subtext: #414f62;
   --color-text-header: #17171c;
-  --color-fill-background: #f5f6f7 /* Blue */
-    --color-blue-default: var(--color-blue-default);
+  --color-fill-background: #f5f6f7;
+  /* Blue */
+  --color-blue-default: var(--color-blue-default);
   --color-blue-hover: var(--color-blue-hover);
   --color-blue-active: var(--color-blue-active);
   --color-blue-stroke: var(--color-blue-stroke);
@@ -124,7 +125,10 @@
   --color-border-primary: #dce0e5;
   --color-text-subtext: #414f62;
   --color-text-header: #17171c;
-  --color-fill-background: #f5f6f7 /* Blue */ --color-blue-default: #3b82f6;
+  --color-fill-background: #f5f6f7;
+
+  /* Blue */
+  --color-blue-default: #3b82f6;
   --color-blue-hover: #2563eb;
   --color-blue-active: #1d4ed8;
   --color-blue-stroke: #93c5fd;
@@ -204,7 +208,10 @@
   --color-border-primary: #dce0e5;
   --color-text-subtext: #414f62;
   --color-text-header: #17171c;
-  --color-fill-background: #f5f6f7 /* Blue */ --color-blue-default: #60a5fa;
+  --color-fill-background: #f5f6f7;
+
+  /* Blue */
+  --color-blue-default: #60a5fa;
   --color-blue-hover: #3b82f6;
   --color-blue-active: #2563eb;
   --color-blue-stroke: #93c5fd;

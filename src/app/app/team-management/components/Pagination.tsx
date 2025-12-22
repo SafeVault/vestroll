@@ -65,7 +65,7 @@ export const Pagination = ({
                 }}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   currentPage === page
-                    ? "bg-purple-600 text-white"
+                    ? "bg-primary-500 text-white"
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
               >

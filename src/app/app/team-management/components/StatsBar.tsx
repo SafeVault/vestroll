@@ -15,7 +15,7 @@ export const StatsBar = ({ totalEmployees, activeEmployees }: StatsBarProps) => 
     <div className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-          <User size={24} className="text-purple-600" />
+          <User size={24} className="text-primary-500" />
         </div>
         <div className="flex-1">
           <p className="text-sm text-gray-500 mb-1">Total number</p>
@@ -34,7 +34,7 @@ export const StatsBar = ({ totalEmployees, activeEmployees }: StatsBarProps) => 
       </div>
       <div className="mt-4 w-full bg-gray-200 rounded-full h-2">
         <div
-          className="bg-purple-600 h-2 rounded-full"
+          className="bg-primary-500 h-2 rounded-full"
           style={{ width: `${percentage}%` }}
         />
       </div>

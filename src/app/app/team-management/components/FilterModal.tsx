@@ -1,17 +1,23 @@
-// /app/team-management/components/FilterModal.tsx
-// The modal popup for applying filters to the employee list.
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+
+export interface FilterOption {
+  label: string;
+  value: string;
+}
+
+export interface FilterGroup {
+  key: string;
+  label: string;
+  options: FilterOption[];
+}
 
 type FilterModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  filters: {
-    status: string;
-    type: string;
-  };
-  onApply: (filters: { status: string; type: string }) => void;
+  filters: Record<string, string>;
+  onApply: (filters: Record<string, string>) => void;
+  filterConfiguration: FilterGroup[];
 };
 
 export const FilterModal = ({
@@ -19,8 +25,14 @@ export const FilterModal = ({
   onClose,
   filters,
   onApply,
+  filterConfiguration,
 }: FilterModalProps) => {
   const [localFilters, setLocalFilters] = useState(filters);
+
+  // Sync local filters when modal opens or external filters change
+  useEffect(() => {
+    setLocalFilters(filters);
+  }, [filters, isOpen]);
 
   if (!isOpen) return null;
 
@@ -49,103 +61,53 @@ export const FilterModal = ({
             </button>
           </div>
           <div className="p-6 space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Status
-              </label>
-              <div className="flex gap-2">
-                <button
-                  onClick={() =>
-                    setLocalFilters({ ...localFilters, status: "All" })
-                  }
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    localFilters.status === "All"
-                      ? "bg-purple-100 text-purple-700 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
-                  }`}
-                >
-                  All
-                </button>
-                <button
-                  onClick={() =>
-                    setLocalFilters({ ...localFilters, status: "Active" })
-                  }
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    localFilters.status === "Active"
-                      ? "bg-purple-100 text-purple-700 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
-                  }`}
-                >
-                  Active
-                </button>
-                <button
-                  onClick={() =>
-                    setLocalFilters({ ...localFilters, status: "Inactive" })
-                  }
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    localFilters.status === "Inactive"
-                      ? "bg-purple-100 text-purple-700 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
-                  }`}
-                >
-                  Inactive
-                </button>
+            {filterConfiguration.map((group) => (
+              <div key={group.key}>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  {group.label}
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() =>
+                      setLocalFilters({ ...localFilters, [group.key]: "All" })
+                    }
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      !localFilters[group.key] || localFilters[group.key] === "All"
+                        ? "bg-purple-100 text-primary-500 border border-purple-300"
+                        : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
+                    }`}
+                  >
+                    All
+                  </button>
+                  {group.options.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() =>
+                        setLocalFilters({ ...localFilters, [group.key]: option.value })
+                      }
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        localFilters[group.key] === option.value
+                          ? "bg-purple-100 text-primary-500 border border-purple-300"
+                          : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Type
-              </label>
-              <div className="flex gap-2">
-                <button
-                  onClick={() =>
-                    setLocalFilters({ ...localFilters, type: "All" })
-                  }
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    localFilters.type === "All"
-                      ? "bg-purple-100 text-purple-700 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
-                  }`}
-                >
-                  All
-                </button>
-                <button
-                  onClick={() =>
-                    setLocalFilters({ ...localFilters, type: "Freelancer" })
-                  }
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    localFilters.type === "Freelancer"
-                      ? "bg-purple-100 text-purple-700 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
-                  }`}
-                >
-                  Freelancer
-                </button>
-                <button
-                  onClick={() =>
-                    setLocalFilters({ ...localFilters, type: "Contractor" })
-                  }
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    localFilters.type === "Contractor"
-                      ? "bg-purple-100 text-purple-700 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200"
-                  }`}
-                >
-                  Contractor
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="flex gap-3 p-6 border-t border-gray-200">
             <button
               onClick={handleCancel}
-              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               onClick={handleApply}
-              className="flex-1 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors"
+              className="flex-1 px-4 py-2.5 bg-primary-500 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors cursor-pointer"
             >
               Apply
             </button>

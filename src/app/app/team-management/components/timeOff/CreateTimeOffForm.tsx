@@ -1,3 +1,5 @@
+"use client";
+
 // This component contains the entire form for creating a new time off record.
 import React, { useState, useRef } from "react";
 import {
@@ -44,7 +46,7 @@ const EmployeeSelector = ({
               className="w-full h-full object-cover"
             />
           ) : (
-            <User size={20} className="text-purple-600" />
+            <User size={20} className="text-primary-500" />
           )}
         </div>
         <div className="text-left">
@@ -73,10 +75,10 @@ const formatDate = (dateString: string): string => {
   if (!dateString) return '';
   const date = new Date(dateString);
   const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-  
+
   // To handle timezone issues and get the correct date
   const utcDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-  
+
   let day = utcDate.getDate().toString();
   const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(utcDate);
   const year = utcDate.getFullYear();
@@ -106,7 +108,7 @@ const TimeOffTypeToggle = ({ type, onChange }: { type: 'paid' | 'unpaid'; onChan
           onClick={() => onChange('paid')}
           className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-colors focus:outline-none ${
             type === 'paid'
-              ? 'bg-white text-purple-700 shadow-sm'
+              ? 'bg-white text-primary-500 shadow-sm'
               : 'text-gray-500 hover:text-gray-800'
           }`}
         >
@@ -117,7 +119,7 @@ const TimeOffTypeToggle = ({ type, onChange }: { type: 'paid' | 'unpaid'; onChan
           onClick={() => onChange('unpaid')}
           className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-colors focus:outline-none ${
             type === 'unpaid'
-              ? 'bg-white text-purple-700 shadow-sm'
+              ? 'bg-white text-primary-500 shadow-sm'
               : 'text-gray-500 hover:text-gray-800'
           }`}
         >
@@ -144,7 +146,7 @@ const ReasonSelect = ({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-700"
+        className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
       >
         <option value="">Select reason</option>
         {options.map((option: string) => (
@@ -200,36 +202,36 @@ const FileUpload = ({ file, onChange }: { file: File | null; onChange: (file: Fi
       const droppedFile = e.dataTransfer.files[0];
       if (droppedFile) onChange(droppedFile);
     };
-  
+
     const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
     };
-  
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const selectedFile = e.target.files?.[0] || null;
       onChange(selectedFile);
     };
-  
+
     return (
       <div className="mb-6">
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Attachment (Optional)
         </label>
-        
+
         {file ? (
             // UI to show when a file is selected
             <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 flex items-center justify-between">
                 <div className="flex items-center gap-3 min-w-0">
                     <div className="w-10 h-10 bg-white border border-purple-200 rounded-full flex items-center justify-center flex-shrink-0">
-                        <File size={20} className="text-purple-600" />
+                        <File size={20} className="text-primary-500" />
                     </div>
                     <div className="min-w-0">
                         <p className="text-sm font-medium text-gray-800 truncate">{file.name}</p>
                         <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
                     </div>
                 </div>
-                <button 
-                    onClick={() => onChange(null)} 
+                <button
+                    onClick={() => onChange(null)}
                     className="text-gray-500 hover:text-red-600 p-2 rounded-full transition-colors flex-shrink-0"
                     aria-label="Remove file"
                 >
@@ -241,14 +243,14 @@ const FileUpload = ({ file, onChange }: { file: File | null; onChange: (file: Fi
             <div
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
-                className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-purple-400 transition-colors cursor-pointer"
+                className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary-500 transition-colors cursor-pointer"
             >
                 <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mb-3">
-                        <Upload size={24} className="text-purple-600" />
+                    <div className="w-12 h-12 bg-primary-50 rounded-full flex items-center justify-center mb-3">
+                        <Upload size={24} className="text-primary-500" />
                     </div>
                     <p className="text-sm text-gray-700 mb-1">
-                        <label className="text-purple-600 font-medium cursor-pointer hover:text-purple-700">
+                        <label className="text-primary-500 font-medium cursor-pointer">
                             Click to upload
                             <input
                                 type="file"
@@ -360,7 +362,7 @@ export const CreateTimeOffForm = ({ employees }: { employees: Employee[] }) => {
                 setFormData({ ...formData, description: e.target.value })
               }
               rows={4}
-              className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-700 resize-none"
+              className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 resize-none"
               placeholder="Add any additional notes..."
             />
           </div>
@@ -370,7 +372,7 @@ export const CreateTimeOffForm = ({ employees }: { employees: Employee[] }) => {
           />
           <button
             onClick={handleSubmit}
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-primary-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"
           >
             Create record
           </button>

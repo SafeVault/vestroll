@@ -24,13 +24,13 @@ export const NavigationTabs = ({ activeTab, onTabChange }: NavigationTabsProps) 
               onClick={() => onTabChange(tab)}
               className={`pb-2 px-1 relative transition-colors whitespace-nowrap ${
                 activeTab === tab
-                  ? "text-purple-600 font-medium"
+                  ? "text-primary-500 font-medium"
                   : "text-gray-600 hover:text-gray-800"
               }`}
             >
               {tab}
               {activeTab === tab && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-600" />
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500" />
               )}
             </button>
           ))}
