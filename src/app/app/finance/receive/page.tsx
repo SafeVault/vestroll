@@ -136,7 +136,7 @@ export default function DepositPage() {
             Back
           </button>
           <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
-            Deposit
+            Receive
           </h1>
         </div>
       </div>
