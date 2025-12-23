@@ -1,19 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { Asset } from "@/types/finance.types";
-import { ChevronRight } from "lucide-react";
 
 interface AssetCardProps {
   asset: Asset;
-  onClick?: () => void;
 }
 
-export function AssetCard({ asset, onClick }: AssetCardProps) {
+export function AssetCard({ asset }: AssetCardProps) {
   return (
-    <div
-      className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-all cursor-pointer group"
-      onClick={onClick}
-    >
+    <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-all cursor-pointer group">
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-3 flex-1">
           <div
@@ -32,7 +27,6 @@ export function AssetCard({ asset, onClick }: AssetCardProps) {
               <h3 className="font-semibold text-[#0F172A] text-sm mb-0.5">
                 {asset.name}
               </h3>
-              <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
             </div>
             <p className="text-xs text-[#64748B]">
               {asset.price}{" "}
