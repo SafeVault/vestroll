@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fasthand&display=swap");
 @import "tailwindcss";
-@import "./styles/colors.css";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -46,6 +45,10 @@
 }
 
 :root {
+  --color-background-b0: #ffffff;
+  --color-text-primary: #17171c;
+  --color-constant-default: #ffffff;
+  --color-constant-inverse: #000000;
   --color-background: var(--color-background-b0);
   --color-foreground: var(--color-text-primary);
   --radius: 0.625rem;

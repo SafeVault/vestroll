@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import MobileHeader from "@/components/mobile-header";
-import Sidebar from "@/components/sidebar";
+import MobileHeader from "@/components/layout/mobile-header";
+import Sidebar from "@/components/layout/sidebar";
 import Image, { StaticImageData } from "next/image";
-import miniAvatar from "../../public/avatar/Component 4.svg";
+import miniAvatar from "@public/avatar/component4.svg";
 import Link from "next/link";
 
 interface User {

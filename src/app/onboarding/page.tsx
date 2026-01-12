@@ -1,11 +1,13 @@
-import BusinessDetails from "../../components/business-details";
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function OnboardingPage() {
-  return (
-    <div className="flex min-h-screen">
-      <BusinessDetails />
-    </div>
-  );
+  const router = useRouter();
+  
+  useEffect(() => {
+    router.replace('/onboarding/account-type');
+  }, [router]);
+
+  return null;
 }
-
-

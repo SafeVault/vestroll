@@ -1,5 +1,5 @@
 import React from "react";
-import { EmptyStateIcon } from "../../../public/svg";
+import { EmptyStateIcon } from "@/components/shared/icons";
 interface EmptyStateProps {
   title: string;
   description: string;
