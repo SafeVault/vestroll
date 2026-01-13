@@ -1,6 +1,6 @@
 # VestRoll Payroll System - Web Application
 
-VestRoll is a premium Enterprise Payroll management platform designed for modern businesses. Built with **Next.js 15**, **TypeScript**, and **React 19**, it provides a seamless experience for managing contracts, team members, and financial operations with integrated cryptocurrency support.
+VestRoll is a Payroll management platform designed for modern businesses. Built with **Next.js 15**, **TypeScript**, and **React 19**, it provides a seamless experience for managing contracts, invoices, expenses, team members and financial operations.
 
 ---
 
@@ -26,10 +26,6 @@ VestRoll is a premium Enterprise Payroll management platform designed for modern
 - **Charts**: [Recharts](https://recharts.org/)
 - **Themes**: `next-themes` (Dark/Light mode support)
 
-### Web3 & Finance
-
-- **Blockchain**: `ethers.js v6`, `web3.js v4`, and `web3-react`
-- **Utilities**: `date-fns`, `html2canvas`, `jspdf` for invoice generation
 
 ---
 
@@ -70,11 +66,11 @@ vestroll/
 
 ## ✨ Key Features
 
-- **Automated Payroll**: Schedule and execute payments in fiat or cryptocurrency.
+- **Automated Payroll**: Schedule and execute payments in fiat or stablecoin.
 - **Contract Management**: Multi-step creation flow for Fixed Rate, Pay As You Go, and Milestone-based contracts.
-- **Crypto-Ready**: Integrated wallet support for USDT, USDC, ETH, and BTC payments.
+- **Crypto-Ready**: Support for USDT and USDC payments.
 - **Finance Analytics**: Real-time tracking of expenses, payouts, and balance metrics.
-- **Team Management**: Robust directory for managing employees and contractors with permission controls.
+- **Team Management**: Large directory for managing employees and contractors with permission controls.
 - **Compliance & Invoicing**: Automated invoice generation (PDF/Image) and compliance tracking.
 
 ---
@@ -91,7 +87,7 @@ vestroll/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/SafeVault/vestroll-frontend.git
+   git clone https://github.com/SafeVault/vestroll.git
    cd vestroll
    ```
 
