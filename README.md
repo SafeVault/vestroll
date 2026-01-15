@@ -1,6 +1,6 @@
 # VestRoll Payroll System - Full-Stack Platform
 
-VestRoll is a Payroll management platform built for modern businesses. Built with **Next.js 15**, **TypeScript**, and **React 19**, it seamlessly integrates frontend interfaces with robust backend logic for managing contracts, team members, and financial operations. By leveraging the **Stellar configuration**, VestRoll ensures fast, low-cost, and secure stablecoin interactions, making global payroll efficient and accessible.
+VestRoll is a Payroll management platform built for modern businesses. Built with **Next.js 15**, **TypeScript**, and **React 19**, it seamlessly integrates frontend interfaces with robust backend logic for managing contracts, team members, and financial operations. By leveraging the **Stellar ecosystem**, VestRoll ensures fast, low-cost, and secure stablecoin interactions, making global payroll efficient and accessible.
 
 ---
 
